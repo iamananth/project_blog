@@ -1,17 +1,27 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ArticleListpage from './pages/ArticlesListPage';
 import ArticlePage from './pages/ArticlePage';
+import react from 'react';
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
+      <div className="App">
       <h1>R Blog</h1>
       <div id="page-body">
-        Welcome to R Blog!
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/articles" element={<ArticleListpage />} />
+          <Route path="/articles/:articleId" element={<ArticlePage />} />
+        </Routes>
       </div>
     </div>
+    </BrowserRouter>
+    
   );
 }
 
